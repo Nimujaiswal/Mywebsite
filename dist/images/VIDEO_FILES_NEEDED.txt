@@ -1,0 +1,228 @@
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const videoList = [
+  { src: "/images/motion.mp4", description: "Motion Animation" },
+  { src: "/images/next.mp4", description: "School Management App Video" },
+  { src: "/images/logo.mp4", description: "Logo Animation" },
+  { src: "/images/Intro.mp4", description: "Digital Advertising" },
+  { src: "/images/TSL.mp4", description: "Cricket Club" },
+  { src: "/images/Final.mp4", description: "Short Ad for App" },
+  { src: "/images/Viral_Reel.mp4", description: "Interactive Short Content" },
+  { src: "/images/sf.mp4", description: "Short Film" },
+  { src: "/images/Motion 2.mp4", description: "Name Play" },
+  { src: "/images/Anime Swiggy.mp4", description: "Ai Swiggy Anime" },
+  { src: "/images/DONE.mp4", description: "Banner Outro" },
+];
+
+export default function VideoGallery() {
+
+  const [modalVideo, setModalVideo] = useState(null);
+
+  const videoRefs = useRef([]);
+
+  // PLAY ON HOVER
+  const handleHover = (index) => {
+
+    const video = videoRefs.current[index];
+
+    if (video) {
+
+      video.currentTime = 0;
+      video.play();
+
+    }
+
+  };
+
+  // STOP ON LEAVE
+  const handleLeave = (index) => {
+
+    const video = videoRefs.current[index];
+
+    if (video) {
+
+      video.pause();
+      video.currentTime = 0;
+
+    }
+
+  };
+
+  return (
+
+<main className="relative min-h-screen pt-28 pb-16 overflow-hidden">
+
+{/* ================= */}
+{/* BACKGROUND */}
+{/* ================= */}
+
+<div
+className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+style={{
+backgroundImage: "url('/images/OverallBG.jpg')"
+}}
+/>
+
+<div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+
+<div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/70" />
+
+{/* ================= */}
+{/* CONTENT */}
+{/* ================= */}
+
+<div className="relative z-10 max-w-7xl mx-auto px-4">
+
+{/* TITLE */}
+
+<motion.div
+initial={{ opacity: 0, y: -20 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.6 }}
+className="text-center mb-16"
+>
+
+<h1 className="text-5xl sm:text-6xl font-black bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+
+Video Gallery
+
+</h1>
+
+<p className="text-slate-400 mt-3">
+
+Explore motion design & animation work
+
+</p>
+
+</motion.div>
+
+{/* ================= */}
+{/* VIDEO GRID */}
+{/* ================= */}
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+{videoList.map((video, index) => (
+
+<motion.div
+key={index}
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+whileHover={{ y: -6 }}
+transition={{ duration: 0.5 }}
+viewport={{ once: true }}
+className="group cursor-pointer"
+onMouseEnter={() => handleHover(index)}
+onMouseLeave={() => handleLeave(index)}
+onClick={() => setModalVideo(video.src)}
+>
+
+<div className="bg-black/60 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-md hover:border-cyan-400 transition">
+
+{/* VIDEO AREA */}
+
+<div className="relative w-full aspect-[16/9] bg-black flex items-center justify-center overflow-hidden">
+
+<video
+ref={(el) => videoRefs.current[index] = el}
+src={video.src}
+muted
+loop
+playsInline
+preload="metadata"
+className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+/>
+
+{/* PLAY ICON */}
+
+<div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
+
+<div className="w-16 h-16 rounded-full bg-cyan-400/80 flex items-center justify-center group-hover:scale-110 transition">
+
+<div className="w-0 h-0 border-l-8 border-l-black border-t-5 border-t-transparent border-b-5 border-b-transparent ml-1"/>
+
+</div>
+
+</div>
+
+</div>
+
+{/* DESCRIPTION */}
+
+<div className="p-4">
+
+<p className="text-lg font-semibold text-slate-200 group-hover:text-cyan-400 transition">
+
+{video.description}
+
+</p>
+
+</div>
+
+</div>
+
+</motion.div>
+
+))}
+
+</div>
+
+</div>
+
+{/* ================= */}
+{/* MODAL PLAYER */}
+{/* ================= */}
+
+<AnimatePresence>
+
+{modalVideo && (
+
+<motion.div
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+onClick={() => setModalVideo(null)}
+>
+
+<motion.div
+initial={{ scale: 0.9 }}
+animate={{ scale: 1 }}
+exit={{ scale: 0.9 }}
+className="w-full max-w-6xl"
+onClick={(e) => e.stopPropagation()}
+>
+
+{/* CLOSE BUTTON */}
+
+<button
+onClick={() => setModalVideo(null)}
+className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white text-2xl"
+>
+
+×
+
+</button>
+
+{/* VIDEO */}
+
+<video
+src={modalVideo}
+controls
+autoPlay
+className="w-full rounded-2xl shadow-2xl object-contain max-h-[85vh]"
+/>
+
+</motion.div>
+
+</motion.div>
+
+)}
+
+</AnimatePresence>
+
+</main>
+
+  );
+}
