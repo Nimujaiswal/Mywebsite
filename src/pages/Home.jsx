@@ -177,7 +177,6 @@ const HoloCard = ({ src, alt }) => {
         style={{ boxShadow: active ? "0 0 0 1px rgba(255,155,113,0.35), 0 0 50px rgba(255,183,94,0.12), inset 0 0 60px rgba(255,155,113,0.04)" : "0 0 0 1px rgba(255,255,255,0.07)" }} />
       {!active && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-none">
-          <div className="w-95 h-95 rounded-full border border-[#FF9B71]/20 bg-black/30 flex items-center justify-center mb-3 animate-pulse backdrop-blur-sm"><span className="w-1 h-1 rounded-full bg-[#FF9B71]/0"/></div>
         </div>
       )}
     </motion.div>
@@ -368,7 +367,7 @@ const ChessPromo = () => {
 
 /* ─── FLOATING AMBIENT TAGS ─── */
 const FloatTag = ({ text, style, delay = 0 }) => (
-  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: [0, 1, 1, 0.7], y: [10, 0, -6, 0] }} transition={{ delay, duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute hidden lg:flex items-center gap-2 bg-[rgba(15,15,15,0.8)] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md text-xs font-mono tracking-widest text-[#CBD5E1] uppercase pointer-events-none shadow-[0_10px_20px_rgba(0,0,0,0.4)]" style={style}>
+  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: [0.7, 1, 1, 0.7], y: [10, 0, -6, 0] }} transition={{ delay, duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute z-20 hidden lg:flex items-center gap-2 bg-[rgba(15,15,15,0.8)] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md text-xs font-mono tracking-widest text-[#CBD5E1] uppercase pointer-events-none shadow-[0_10px_20px_rgba(0,0,0,0.4)]" style={style}>
     <span className="w-2 h-2 rounded-full bg-[#FFB75E] shadow-[0_0_8px_rgba(255,183,94,0.6)]"/>{text}
   </motion.div>
 );
