@@ -336,7 +336,7 @@ const ChessPromo = () => {
           <div className="flex-1 space-y-6 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#FFB75E] tracking-[0.2em] uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FFB75E] animate-pulse"></span>
-              Most Lovable Game for Me
+              MY THINKING PLAYGROUND ♟️
             </div>
             
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
