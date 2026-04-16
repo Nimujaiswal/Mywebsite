@@ -149,22 +149,23 @@ export default function About() {
 
   /* ── .about-image img ── */
   const imgStyle = {
-    maxWidth: isMobile ? "300px" : "425px",
+    maxWidth: isMobile ? "250px" : "425px",
     width: "100%",
     borderRadius: "20px",
   };
 
   /* ── .behance-skills ── exact values from your CSS per breakpoint ── */
-  const behanceSkillsStyle = {
-    position: "absolute",
-    bottom: isMobile ? "40px" : isTablet ? "40px" : "-65px",
-    left: isMobile ? "0" : isTablet ? "-166px" : "-0",
-    width: "111%",
-    zIndex: -1,
-    overflow: "hidden",
-    display: "flex",
-    justifyContent: "flex-end",
-  };
+const behanceSkillsStyle = {
+  position: "absolute",
+  bottom: isMobile ? "40px" : isTablet ? "40px" : "-50px",
+  left: isMobile ? "0" : isTablet ? "-166px" : "89px",
+  width: "100%",
+  maxWidth: "100%",
+  zIndex: -1,
+  overflow: "hidden",
+  display: "flex",
+  justifyContent: "flex-end",
+};
 
   /* ── .behance-skills img ── */
   const behanceImgStyle = {
@@ -233,19 +234,18 @@ export default function About() {
             <h3>📞 +91 8169065601</h3>
           </div>
         </div>
-
-        {/* RIGHT — IMAGE */}
+       
         <div style={imageStyle}>
           <img src="/images/Nimu.png" alt="Nimesh Jaiswal" style={imgStyle} />
         </div>
 
-        {/* BEHANCE STRIP — absolute inside .about-container, exactly as original */}
+       
         <div style={behanceSkillsStyle}>
           <img
-            src="/images/behance.png"
-            alt="Adobe Creative Suite and Figma icons"
-            style={behanceImgStyle}
-          />
+  alt="Adobe Creative Suite and Figma icons"
+  src="/images/behance.png"
+  className="w-full max-w-full h-auto"
+/>
         </div>
 
       </div>
