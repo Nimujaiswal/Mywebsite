@@ -26,8 +26,7 @@ const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   /* Removed scroll-behavior: smooth to prevent auto-scroll to anchors on load */
-  html, body { overflow-x: hidden; cursor: auto; }
-
+html, body { overflow-x: hidden; cursor: auto; scrollbar-gutter: stable; }
   /* ── AMBIENT BLOBS ── */
   .blob {
     position: absolute; border-radius: 50%; filter: blur(100px);
@@ -286,7 +285,7 @@ const Skills = ({ setXp }) => {
   const handleUnlock = useCallback((i) => { setUnlocked((prev) => { if (prev.has(i)) return prev; const next = new Set(prev); next.add(i); setXp(Math.round((next.size / SKILLS.length) * 100)); return next; }); }, [setXp]);
   const allUnlocked = unlocked.size === SKILLS.length; const pct = Math.round((unlocked.size / SKILLS.length) * 100);
   return (
-    <section id="skills" ref={ref} className="relative py-24 md:py-32 z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+    <section id="skills" ref={ref} className="relative pt-24 pb-10 md:pt-28 md:pb-12 z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
       <AnimatePresence>
         {allUnlocked && ( <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 pointer-events-none z-[-1]"><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full" style={{ background: "radial-gradient(ellipse, rgba(255,155,113,0.07) 0%, rgba(255,183,94,0.04) 40%, transparent 70%)", filter: "blur(50px)" }}/></motion.div> )}
       </AnimatePresence>
@@ -322,7 +321,7 @@ const ChessPromo = () => {
   const inView = useInView(ref, { once: true, margin: "-10%" });
 
   return (
-    <section ref={ref} className="relative pb-32 pt-16 z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+    <section ref={ref} className="relative pb-8 pt-16 z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -334,18 +333,30 @@ const ChessPromo = () => {
 
         <div className="relative p-10 md:p-14 lg:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="flex-1 space-y-6 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#FFB75E] tracking-[0.2em] uppercase shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#FFB75E] animate-pulse"></span>
-              MY THINKING PLAYGROUND ♟️
-            </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-xs font-mono text-[#FFB75E] tracking-[0.1em] sm:tracking-[0.2em] uppercase shadow-sm whitespace-nowrap">
+  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB75E] animate-pulse shrink-0"></span>
+  MY THINKING PLAYGROUND ♟️
+</div>
             
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Strategic <span className="bg-gradient-to-r from-[#FF9B71] to-[#FFB75E] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,155,113,0.2)]">Design</span><br/>
-              Strategic <span className="bg-gradient-to-r from-[#FF9B71] to-[#FFB75E] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,155,113,0.2)]">Thinking.</span>
-            </h3>
+           <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+  Strategic <span className="text-[#FFB75E]">Design</span><br/>
+
+  {/* Desktop */}
+  <span className="hidden sm:inline">
+    Strategic <span className="text-[#FFB75E]">Thinking</span>
+  </span>
+
+  {/* Mobile */}
+  <span className="inline sm:hidden">
+    <span className="text-[#FFB75E]">Thinking</span>
+  </span>
+</h3>
             
             <p className="text-[#CBD5E1] text-base lg:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed font-mono">
-              Great design is like chess every move matters. Take a break and challenge the CPU in a custom-built, retro-styled Pixel Chess engine directly in my portfolio.
+              Every move has a purpose.
+
+I create experiences that are not just visually strong but built to perform and convert.
+Step in and explore it yourself.
             </p>
           </div>
 
@@ -353,11 +364,11 @@ const ChessPromo = () => {
             <motion.div animate={{ y: [-8, 8, -8], rotate: [-6, 6, -6] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-16 -left-16 text-7xl text-white/5 blur-[2px] select-none pointer-events-none">♞</motion.div>
             <motion.div animate={{ y: [8, -8, 8], rotate: [6, -6, 6] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute -bottom-12 -right-12 text-8xl text-[#FFB75E]/5 blur-[2px] select-none pointer-events-none">♜</motion.div>
 
-            <NavLink to="/chess" className="relative inline-flex items-center justify-center gap-4 px-8 py-5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-white/20 hover:border-[#FFB75E]/50 text-white font-bold rounded-2xl transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,155,113,0.25)] overflow-hidden backdrop-blur-md cursor-pointer group/btn">
-              <span className="relative z-10 text-lg tracking-wide">Play for a Break</span>
-              <span className="relative z-10 text-2xl group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-all duration-300 text-[#FFB75E] drop-shadow-[0_0_10px_rgba(255,183,94,0.5)]">♚</span>
-              <div className="absolute top-0 bottom-0 w-16 -translate-x-[250px] group-hover/btn:animate-[shimmerSlide_2s_ease-out_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
-            </NavLink>
+            <NavLink to="/chess" className="relative inline-flex items-center justify-center gap-3 px-6 py-4 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-white/20 hover:border-[#FFB75E]/50 text-white font-bold rounded-2xl transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,155,113,0.25)] overflow-hidden backdrop-blur-md cursor-pointer group/btn whitespace-nowrap">
+  <span className="relative z-10 text-base sm:text-lg tracking-wide">Play for a Break</span>
+  <span className="relative z-10 text-xl sm:text-2xl shrink-0 group-hover/btn:rotate-12 group-hover/btn:scale-110 transition-all duration-300 text-[#FFB75E] drop-shadow-[0_0_10px_rgba(255,183,94,0.5)]">♚</span>
+  <div className="absolute top-0 bottom-0 w-16 -translate-x-[250px] group-hover/btn:animate-[shimmerSlide_2s_ease-out_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
+</NavLink>
           </div>
         </div>
       </motion.div>
@@ -417,7 +428,7 @@ export default function Home() {
             </motion.div>
 
             {/* SUBTEXT LIST */}
-            <motion.div variants={itemV} className="font-mono text-base lg:text-lg text-slate-400 space-y-3 pt-6">
+           <motion.div variants={itemV} className="font-mono text-base lg:text-lg text-slate-400 space-y-3 pt-6">
               {[
                 "WEB TECH ENTHUSIAST",
                 "TURNS IDEAS INTO REALITY",
