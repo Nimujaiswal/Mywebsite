@@ -417,7 +417,7 @@ export default function Home() {
             </motion.div>
 
             {/* SUBTEXT LIST */}
-            <motion.div variants={itemV} className="font-mono text-sm lg:text-base text-slate-400 space-y-3 pt-6">
+            <motion.div variants={itemV} className="font-mono text-base lg:text-lg text-slate-400 space-y-3 pt-6">
               {[
                 "WEB TECH ENTHUSIAST",
                 "TURNS IDEAS INTO REALITY",
@@ -425,7 +425,7 @@ export default function Home() {
                 "LOVES BUILDING DIGITAL EXPERIENCE",
               ].map((line, i) => (
                 <motion.p key={i} initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.55 + i * 0.09, duration: 0.5 }} className="flex items-start gap-3 group">
-                  <span className="text-slate-500 font-bold transition-colors duration-300 text-base leading-none mt-[2px]">&gt;</span>
+                  <span className="text-slate-500 font-bold transition-colors duration-300 text-lg leading-none mt-[2px]">&gt;</span>
                   <span className="group-hover:text-white transition-colors duration-300 tracking-[0.15em] font-normal leading-tight">{line}</span>
                 </motion.p>
               ))}
