@@ -1,61 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 /* ================= HERO VIDEOS ================= */
 const heroVideos = [
   {
     title: "Broke Hours - Free Delivery",
     file: "/videos/Broke Hours_Free Delivery.mp4",
-      },
+  },
   {
     title: "Spice with Rizz",
     file: "/videos/Frame 2147227231.mp4",
-      },
+  },
   {
     title: "Interactive Spin",
     file: "/videos/Spinning wheel.mp4",
-      }
+  }
 ];
 
 /* ================= GALLERY ================= */
 const galleryVideos = [
-  {
-    title: "Cafe Coffee Day",
-    file: "/videos/CCD_3.mp4"
-  },
-  {
-    title: "Harsh Gujral",
-    file: "/videos/Harsh Gujral.mp4"
-  },
-  {
-    title: "Republic Day",
-    file: "/videos/Frame 2147227265_4.mp4"
-  },
-  {
-    title: "Sonam Bajwa",
-    file: "/videos/gradient.mp4"
-  },
-  {
-    title: "49 Offer",
-    file: "/videos/2_4.mp4"
-  },
-  {
-    title: "DJ Chetas",
-    file: "/videos/Dj Chetas.mp4"
-  },
-  {
-    title: "Cricket",
-    file: "/videos/Broke Hours.mp4"
-  },
-  {
-    title: "Toing",
-    file: "/videos/Broken Lottie Adapts.mp4"
-  },
-  {
-    title: "Evening Promo",
-    file: "/videos/WhatsApp Video 2026-01-08 at 6.36.01 PM.mp4"
-  }
+  { title: "Cafe Coffee Day", file: "/videos/CCD_3.mp4" },
+  { title: "Harsh Gujral", file: "/videos/Harsh Gujral.mp4" },
+  { title: "Republic Day", file: "/videos/Frame 2147227265_4.mp4" },
+  { title: "Sonam Bajwa", file: "/videos/gradient.mp4" },
+  { title: "49 Offer", file: "/videos/2_4.mp4" },
+  { title: "DJ Chetas", file: "/videos/Dj Chetas.mp4" },
+  { title: "Cricket", file: "/videos/Broke Hours.mp4" },
+  { title: "Toing", file: "/videos/Broken Lottie Adapts.mp4" },
+  { title: "Evening Promo", file: "/videos/WhatsApp Video 2026-01-08 at 6.36.01 PM.mp4" }
 ];
+
+/* ================= SCROLL TRIGGERED VIDEO COMPONENT ================= */
+const ScrollTriggeredVideo = ({ video }) => {
+  const ref = useRef(null);
+  // Starts loading the video when it is 300px away from entering the viewport
+  const isInView = useInView(ref, { once: true, margin: "300px" });
+
+  return (
+    <div ref={ref} className="w-full h-full">
+      {isInView ? (
+        <video
+          src={video.file}
+          muted
+          loop
+          autoPlay
+          className="w-full h-auto object-contain bg-black/40"
+        />
+      ) : (
+        // Placeholder maintaining the aspect ratio to prevent layout shift
+        <div className="w-full aspect-video bg-[rgba(255,255,255,0.02)]" />
+      )}
+    </div>
+  );
+};
 
 export default function Motion() {
   /* ================= STATES ================= */
@@ -156,10 +153,10 @@ export default function Motion() {
                   transition-all duration-700 ease-in-out ${styleClass}
                 `}
               >
-                {/* VIDEO */}
+                {/* VIDEO - Only autoPlay the center video */}
                 <video
                   src={video.file}
-                  autoPlay
+                  autoPlay={position === "center"}
                   muted
                   loop
                   className="w-full h-full object-contain bg-black/40"
@@ -217,13 +214,8 @@ export default function Motion() {
               {/* Subtle top glare */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
 
-              <video
-                src={video.file}
-                muted
-                loop
-                autoPlay
-                className="w-full h-auto object-contain bg-black/40"
-              />
+              {/* IMPLEMENTED: ScrollTriggeredVideo replacing standard video tag */}
+              <ScrollTriggeredVideo video={video} />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"/>
 
