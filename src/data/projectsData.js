@@ -60,6 +60,14 @@ export const projects = [
     tags: ["E-commerce", "Fashion"],
     link: "https://www.memsaabindia.in/",
   },
+  {
+  title: "Nexus Platform",
+  description:
+    "Modern AI-powered productivity and system-based platform with futuristic UI and seamless experience.",
+  type: "dev",
+  tags: ["Next.js", "React", "AI", "UI/UX", "Modern Web"],
+  link: "https://nexus-six-sooty.vercel.app/",
+},
 
   {
     title: "Broadcast Camera Provider",
