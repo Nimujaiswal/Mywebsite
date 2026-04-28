@@ -6,16 +6,7 @@ export const projects = [
   // FIGMA PROJECTS
   // =========================
 
-  {
-    title: "Dumpling Dynasty",
-    description:
-      "Restaurant UI/UX prototype with full ordering flow.",
-    type: "figma",
-    tags: ["UI/UX", "Figma"],
-    link:
-      "https://www.figma.com/proto/nzTBkU8wZjka3EEqgNDWuC",
-    image: "/images/FB.png",
-  },
+  
 
   {
     title: "GoQuant Trading",
@@ -36,6 +27,35 @@ export const projects = [
     tags: ["Platform", "Figma"],
     link:
       "https://www.figma.com/design/iHXmLSy4nMQN32lr3lg7FI",
+    image: "/images/FB.png",
+  },
+  {
+  title: "Aqura Renewable Energy Website",
+
+  description:
+    "Corporate renewable energy website UI designed",
+
+  type: "figma",
+
+  tags: [
+    "Renewable Energy",
+    "Corporate UI",
+    
+  ],
+
+  link:
+    "https://www.figma.com/design/27JtIoPHq8xvLXK6pKQvMJ/Assignment-Submition",
+
+  image: "/images/aura.png",
+},
+  {
+    title: "Dumpling Dynasty",
+    description:
+      "Restaurant UI/UX prototype with full ordering flow.",
+    type: "figma",
+    tags: ["UI/UX", "Figma"],
+    link:
+      "https://www.figma.com/proto/nzTBkU8wZjka3EEqgNDWuC",
     image: "/images/FB.png",
   },
 
@@ -63,9 +83,9 @@ export const projects = [
   {
   title: "Nexus Platform",
   description:
-    "Modern AI-powered productivity and system-based platform with futuristic UI and seamless experience.",
+    "Modern AI-powered Gaming Webpage experience.",
   type: "dev",
-  tags: ["Next.js", "React", "AI", "UI/UX", "Modern Web"],
+  tags: ["Next.js", "React", "Modern Web"],
   link: "https://nexus-six-sooty.vercel.app/",
 },
 
