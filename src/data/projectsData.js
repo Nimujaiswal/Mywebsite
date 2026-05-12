@@ -25,7 +25,7 @@ export const projects = [
     description: "Corporate UI design for a clean renewable energy brand.",
     type: "figma",
     tags: ["Corporate UI", "Renewable Energy", "Web Design", "Figma"],
-    link: "https://www.figma.com/design/27JtIoPHq8xvLXK6pKQvMJ/Assignment-Submition",
+    link: "https://www.figma.com/proto/AjIx4jwWw7vbMZeesuz8lg/AQURA?node-id=14-5&p=f&t=f4kebimLisHrxBwX-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     image: "/images/FB.png",
   },
   {
