@@ -76,13 +76,7 @@ export const projects = [
     tags: ["Tooling", "File Compression", "JavaScript", "Netlify"],
     link: "https://assetoptimizer.netlify.app/",
   },
-  {
-    title: "CreativeStore – Product Showcase",
-    description: "Responsive product showcase across fashion and lifestyle.",
-    type: "dev",
-    tags: ["HTML", "CSS", "JavaScript", "E-commerce"],
-    link: "https://project-ten-drab-84.vercel.app/",
-  },
+  
   {
     title: "MRSS Supply Chain",
     description: "Import management and logistics corporate website for India.",
