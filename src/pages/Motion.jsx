@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 const heroVideos = [
   {
     title: "Broke Hours - Free Delivery",
-    file: "/videos/Broke Hours_Free Delivery.mp4",
+    file: "/videos/Broke Hours Free Delivery.mp4",
   },
   {
     title: "Spice with Rizz",
@@ -23,7 +23,7 @@ const galleryVideos = [
   { title: "Harsh Gujral", file: "/videos/Harsh Gujral.mp4" },
   { title: "Republic Day", file: "/videos/Frame 2147227265_4.mp4" },
   { title: "Sonam Bajwa", file: "/videos/gradient.mp4" },
-  { title: "49 Offer", file: "/videos/2_4.mp4" },
+  { title: "49 Offer", file: "/videos/2 4.mp4" },
   { title: "DJ Chetas", file: "/videos/Dj Chetas.mp4" },
   { title: "Cricket", file: "/videos/Broke Hours.mp4" },
   { title: "Toing", file: "/videos/Broken Lottie Adapts.mp4" },
