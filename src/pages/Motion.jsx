@@ -9,7 +9,7 @@ const heroVideos = [
   },
   {
     title: "Spice with Rizz",
-    file: "/videos/Frame 2147227231.mp4",
+    file: "/videos/rizz.mp4",
   },
   {
     title: "Interactive Spin",
