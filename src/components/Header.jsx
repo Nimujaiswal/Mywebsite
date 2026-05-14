@@ -67,6 +67,7 @@ export default function Header() {
         {[
           { path: "/", label: "Home", end: true },
           { path: "/video", label: "Video" },
+      { path: "/motion", label: "Motion" },
           { path: "/projects", label: "Projects" },
           { path: "/about", label: "About" },
         ].map((link) => (
@@ -99,6 +100,7 @@ export default function Header() {
           {[
             { path: "/", label: "Home", end: true },
             { path: "/video", label: "Video" },
+        { path: "/motion", label: "Motion" },
             { path: "/projects", label: "Projects" },
             { path: "/about", label: "About" },
           ].map((link) => (
