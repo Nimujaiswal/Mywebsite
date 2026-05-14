@@ -33,6 +33,11 @@ const videoList = [
     poster: "/images/thumb6.jpg"
   },
   {
+    src: "/images/Aanchoo.mp4",
+    description: "Swiggy Instamart x Clevertize Ad AI",
+    poster: "/images/thumb6.jpg"
+  },
+  {
     src: "/images/Viral_Reel.mp4",
     description: "Interactive Content",
     poster: "/images/thumb7.jpg"
