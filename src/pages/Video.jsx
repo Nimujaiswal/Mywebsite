@@ -38,6 +38,11 @@ const videoList = [
     poster: "/images/thumb7.jpg"
   },
   {
+    src: "/images/Apple.mp4",
+    description: "Earbuds AI Ad",
+    poster: "/images/thumb8.jpg"
+  },
+  {
     src: "/images/sf.mp4",
     description: "Short Film",
     poster: "/images/thumb8.jpg"
