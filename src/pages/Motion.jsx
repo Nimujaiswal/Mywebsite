@@ -13,7 +13,7 @@ const heroVideos = [
   },
   {
     title: "Interactive Spin",
-    file: "/videos/Spinning wheel.mp4",
+    file: "/videos/Spinning Wheel.mp4",
   }
 ];
 
@@ -21,8 +21,8 @@ const heroVideos = [
 const galleryVideos = [
   { title: "Cafe Coffee Day", file: "/videos/CCD_3.mp4" },
   { title: "Harsh Gujral", file: "/videos/Harsh Gujral.mp4" },
-  { title: "Republic Day", file: "/videos/Frame 2147227265_4.mp4" },
-  { title: "Sonam Bajwa", file: "/videos/gradient.mp4" },
+  { title: "Republic Day", file: "/videos/Frame 2147227265 4.mp4" },
+  { title: "Sonam Bajwa", file: "/videos/Gradient.mp4" },
   { title: "49 Offer", file: "/videos/2 4.mp4" },
   { title: "DJ Chetas", file: "/videos/Dj Chetas.mp4" },
   { title: "Cricket", file: "/videos/Broke Hours.mp4" },
