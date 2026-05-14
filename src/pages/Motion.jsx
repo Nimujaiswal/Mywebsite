@@ -5,15 +5,15 @@ import { motion, useInView } from "framer-motion";
 const heroVideos = [
   {
     title: "Broke Hours - Free Delivery",
-    file: "/videos/Broke Hours_Free Delivery.webm",
+    file: "/videos/Broke Hours_Free Delivery.mp4",
   },
   {
     title: "Spice with Rizz",
-    file: "/videos/Frame 2147227231.webm",
+    file: "/videos/Frame 2147227231.mp4",
   },
   {
     title: "Interactive Spin",
-    file: "/videos/Spinning wheel.webm",
+    file: "/videos/Spinning wheel.mp4",
   }
 ];
 
